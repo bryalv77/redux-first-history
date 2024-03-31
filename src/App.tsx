@@ -1,47 +1,47 @@
-import React from "react";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { HistoryRouter as Router } from "redux-first-history/rr6";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { push } from "redux-first-history";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { createReduxHistoryContext } from "redux-first-history";
-import { createBrowserHistory } from "history";
+import React from 'react'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { HistoryRouter as Router } from 'redux-first-history/rr6'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
+import { push } from 'redux-first-history'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { createReduxHistoryContext } from 'redux-first-history'
+import { createBrowserHistory } from 'history'
 // import logger from 'redux-logger'
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
-  createReduxHistoryContext({ history: createBrowserHistory() });
+  createReduxHistoryContext({ history: createBrowserHistory() })
 
-let store;
+let store
 
-function configStore(preloadedState) {
+function configStore (preloadedState?) {
   store = configureStore({
     reducer: combineReducers({ router: routerReducer }),
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(routerMiddleware),
+      getDefaultMiddleware().concat(routerMiddleware) as any,
     preloadedState,
-    devTools: process.env.REACT_APP_ENVIRONMENT !== "production",
-  });
-  return store;
+    devTools: process.env.REACT_APP_ENVIRONMENT !== 'production',
+  })
+  return store
 }
 
-const getHistory = () => createReduxHistory(store);
+const getHistory = () => createReduxHistory(store)
 
 const LocationLog = (props) => {
   // @ts-expect-error
-  const router = useSelector((state) => state.router);
-  const { location } = router;
+  const router = useSelector((state) => state.router)
+  const { location } = router
   return (
     <h4>
       {props.title}
-      {" -> "}
+      {' -> '}
       {JSON.stringify(props.location || location)}
     </h4>
-  );
-};
+  )
+}
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const location = useLocation()
   return (
     <div className="h-full p-8 flex justify-center items-center flex-col">
       <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -52,21 +52,21 @@ const Dashboard = () => {
         <div className="flex justify-around my-8">
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/"))}
+            onClick={() => dispatch(push('/'))}
           >
-            dispatch(push("/")) from everywhere
+            dispatch(push(`/`)) from everywhere
           </button>
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/dashboard"))}
+            onClick={() => dispatch(push('/dashboard'))}
           >
-            dispatch(push("/dashboard")) from everywhere
+            dispatch(push(`/dashboard`)) from everywhere
           </button>
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/dashboard/new"))}
+            onClick={() => dispatch(push('/dashboard/new'))}
           >
-            dispatch(push("/dashboard/new")) from everywhere
+            dispatch(push(`/dashboard/new`)) from everywhere
           </button>
         </div>
         <div className="flex justify-around my-8">
@@ -86,12 +86,12 @@ const Dashboard = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const location = useLocation()
   return (
     <div className="h-full p-8 flex justify-center items-center flex-col">
       <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -102,21 +102,21 @@ const Home = () => {
         <div className="flex justify-around my-8">
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/"))}
+            onClick={() => dispatch(push('/'))}
           >
-            dispatch(push("/")) from everywhere
+            dispatch(push(`/`)) from everywhere
           </button>
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/dashboard"))}
+            onClick={() => dispatch(push('/dashboard'))}
           >
-            dispatch(push("/dashboard")) from everywhere
+            dispatch(push(`/dashboard`)) from everywhere
           </button>
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/dashboard/new"))}
+            onClick={() => dispatch(push('/dashboard/new'))}
           >
-            dispatch(push("/dashboard/new")) from everywhere
+            dispatch(push(`/dashboard/new`)) from everywhere
           </button>
         </div>
         <div className="flex justify-around my-8">
@@ -136,12 +136,12 @@ const Home = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const NewDashboard = () => {
-  const dispatch = useDispatch();
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const location = useLocation()
   return (
     <div className="h-full p-8 flex justify-center items-center flex-col">
       <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -152,21 +152,21 @@ const NewDashboard = () => {
         <div className="flex justify-around my-8">
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/"))}
+            onClick={() => dispatch(push('/'))}
           >
-            dispatch(push("/")) from everywhere
+            dispatch(push(`/`)) from everywhere
           </button>
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/dashboard"))}
+            onClick={() => dispatch(push('/dashboard'))}
           >
-            dispatch(push("/dashboard")) from everywhere
+            dispatch(push(`/dashboard`)) from everywhere
           </button>
           <button
             className="font-mono text-xs"
-            onClick={() => dispatch(push("/dashboard/new"))}
+            onClick={() => dispatch(push('/dashboard/new'))}
           >
-            dispatch(push("/dashboard/new")) from everywhere
+            dispatch(push(`/dashboard/new`)) from everywhere
           </button>
         </div>
         <div className="flex justify-around my-8">
@@ -186,10 +186,10 @@ const NewDashboard = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-function App() {
+function App () {
   return (
     <Provider store={configStore()}>
       <Router history={getHistory()}>
@@ -200,7 +200,7 @@ function App() {
         </Routes>
       </Router>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App
