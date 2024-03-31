@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const location = useLocation();
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>New Dashboard</h1>
       <div className="app">
         <LocationLog />
         <div className="buttons">
@@ -29,7 +29,7 @@ export const Dashboard = () => {
           <Link to="/dashboard">ReactRouter Link to Dashboard</Link>
           <Link to="/dashboard/new">ReactRouter Link to New Dashboard</Link>
         </div>
-        <p>DashBoard Content !!</p>
+        <p>New DashBoard Content !!</p>
         {location && (
           <LocationLog location={location} title="route.props.location" />
         )}

@@ -13,16 +13,22 @@ export const Home = () => {
       <h1>Home</h1>
       <div className="app">
         <LocationLog />
-        <div>
+        <div className="buttons">
           <button onClick={() => dispatch(push("/"))}>
             dispatch(push("/")) from everywhere
           </button>
           <button onClick={() => dispatch(push("/dashboard"))}>
             dispatch(push("/dashboard")) from everywhere
           </button>
+          <button onClick={() => dispatch(push("/dashboard/new"))}>
+            dispatch(push("/dashboard/new")) from everywhere
+          </button>
         </div>
-        <Link to="/">ReactRouter Link to Home</Link>
-        <Link to="/dashboard">ReactRouter Link to Dashboard</Link>
+        <div className="links">
+          <Link to="/">ReactRouter Link to Home</Link>
+          <Link to="/dashboard">ReactRouter Link to Dashboard</Link>
+          <Link to="/dashboard/new">ReactRouter Link to New Dashboard</Link>
+        </div>
         <p>HomePage Content !!</p>
         {location && (
           <LocationLog location={location} title="route.props.location" />

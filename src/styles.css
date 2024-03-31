@@ -3,7 +3,7 @@ body {
   padding: 20px;
   font-family: "Courier New", monospace;
   font-size: small;
-  max-width: 800px;
+  max-width: 1200px;
 }
 
 h4 {
@@ -37,6 +37,13 @@ p {
 
 .app h2 {
   text-align: left;
+}
+
+.buttons,
+.links {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
 button {

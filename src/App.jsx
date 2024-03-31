@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { configStore, getHistory } from "./store";
 import Home from "./views/home";
 import Dashboard from "./views/dashboard";
+import NewDashboard from "./views/newDashboard";
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Home />} />
+          <Route path="/dashboard/new" element={<NewDashboard />} />
         </Routes>
       </Router>
     </Provider>
