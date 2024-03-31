@@ -44,7 +44,7 @@ const Dashboard = () => {
   const location = useLocation()
   return (
     <div className="h-full p-8 flex justify-center items-center flex-col">
-      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6x">
         Dashboard
       </h1>
       <div className="p-8 border border-green-400 border-solid">
@@ -94,7 +94,7 @@ const Home = () => {
   const location = useLocation()
   return (
     <div className="h-full p-8 flex justify-center items-center flex-col">
-      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
         Home
       </h1>
       <div className="p-8 border border-blue-400 border-solid">
@@ -144,7 +144,7 @@ const NewDashboard = () => {
   const location = useLocation()
   return (
     <div className="h-full p-8 flex justify-center items-center flex-col">
-      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
         New Dashboard
       </h1>
       <div className="p-8 border border-green-800 border-solid">
