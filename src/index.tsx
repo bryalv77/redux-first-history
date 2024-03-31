@@ -9,7 +9,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { createReduxHistoryContext } from 'redux-first-history'
 import { createBrowserHistory } from 'history'
 // import logger from 'redux-logger'
-// import { BrowserRouter } from 'react-router-dom'
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
   createReduxHistoryContext({ history: createBrowserHistory() })
@@ -208,9 +207,7 @@ function App () {
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <BrowserRouter> */}
-      <App />
-    {/* </BrowserRouter> */}
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
