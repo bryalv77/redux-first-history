@@ -2,10 +2,31 @@ import React from "react";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { HistoryRouter as Router } from "redux-first-history/rr6";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { configStore, getHistory } from "./store";
 import { push } from "redux-first-history";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { createReduxHistoryContext } from "redux-first-history";
+import { createBrowserHistory } from "history";
+// import logger from 'redux-logger'
 
-export const LocationLog = (props) => {
+const { createReduxHistory, routerMiddleware, routerReducer } =
+  createReduxHistoryContext({ history: createBrowserHistory() });
+
+let store;
+
+function configStore(preloadedState) {
+  store = configureStore({
+    reducer: combineReducers({ router: routerReducer }),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(routerMiddleware),
+    preloadedState,
+    devTools: process.env.REACT_APP_ENVIRONMENT !== "production",
+  });
+  return store;
+}
+
+const getHistory = () => createReduxHistory(store);
+
+const LocationLog = (props) => {
   const router = useSelector((state) => state.router);
   const { location } = router;
   return (
@@ -17,7 +38,7 @@ export const LocationLog = (props) => {
   );
 };
 
-export const Dashboard = () => {
+const Dashboard = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   return (
@@ -50,7 +71,7 @@ export const Dashboard = () => {
   );
 };
 
-export const Home = () => {
+const Home = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   return (
@@ -83,7 +104,7 @@ export const Home = () => {
   );
 };
 
-export const NewDashboard = () => {
+const NewDashboard = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   return (
@@ -116,7 +137,7 @@ export const NewDashboard = () => {
   );
 };
 
-export function App() {
+function App() {
   return (
     <Provider store={configStore()}>
       <Router history={getHistory()}>
