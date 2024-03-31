@@ -27,6 +27,7 @@ function configStore(preloadedState) {
 const getHistory = () => createReduxHistory(store);
 
 const LocationLog = (props) => {
+  // @ts-expect-error
   const router = useSelector((state) => state.router);
   const { location } = router;
   return (
