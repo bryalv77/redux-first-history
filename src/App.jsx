@@ -2,17 +2,17 @@ import React from "react";
 import { Provider } from "react-redux";
 import { HistoryRouter as Router } from "redux-first-history/rr6";
 import { Route, Routes } from "react-router-dom";
-import { store, history } from "./store";
-import Home6 from "./views/home";
-import Dashboard6 from "./views/dashboard";
+import { configStore, getHistory } from "./store";
+import Home from "./views/home";
+import Dashboard from "./views/dashboard";
 
 export function App() {
   return (
-    <Provider store={store}>
-      <Router history={history}>
+    <Provider store={configStore()}>
+      <Router history={getHistory()}>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard6 />} />
-          <Route path="/" element={<Home6 />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
     </Provider>

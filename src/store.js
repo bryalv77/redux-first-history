@@ -1,16 +1,23 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { createReduxHistoryContext, reachify } from "redux-first-history";
+import { configureStore } from "@reduxjs/toolkit";
+import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from "history";
+// import logger from 'redux-logger'
+import createRootReducer from "./reducers";
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
   createReduxHistoryContext({ history: createBrowserHistory() });
 
-export const store = createStore(
-  combineReducers({
-    router: routerReducer,
-  }),
-  composeWithDevTools(applyMiddleware(routerMiddleware))
-);
+let store;
 
-export const history = createReduxHistory(store);
+export function configStore(preloadedState) {
+  store = configureStore({
+    reducer: createRootReducer(routerReducer),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(routerMiddleware),
+    preloadedState,
+    devTools: process.env.REACT_APP_ENVIRONMENT !== "production",
+  });
+  return store;
+}
+
+export const getHistory = () => createReduxHistory(store);
