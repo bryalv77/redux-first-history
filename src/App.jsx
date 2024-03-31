@@ -42,27 +42,44 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div className="app">
+    <div className="h-full p-8 flex justify-center items-center flex-col">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Dashboard
+      </h1>
+      <div className="p-8 border border-green-400 border-solid">
         <LocationLog />
-        <div className="buttons">
-          <button onClick={() => dispatch(push("/"))}>
+        <div className="flex justify-around my-8">
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/"))}
+          >
             dispatch(push("/")) from everywhere
           </button>
-          <button onClick={() => dispatch(push("/dashboard"))}>
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/dashboard"))}
+          >
             dispatch(push("/dashboard")) from everywhere
           </button>
-          <button onClick={() => dispatch(push("/dashboard/new"))}>
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/dashboard/new"))}
+          >
             dispatch(push("/dashboard/new")) from everywhere
           </button>
         </div>
-        <div className="links">
-          <Link to="/">ReactRouter Link to Home</Link>
-          <Link to="/dashboard">ReactRouter Link to Dashboard</Link>
-          <Link to="/dashboard/new">ReactRouter Link to New Dashboard</Link>
+        <div className="flex justify-around my-8">
+          <Link className="font-mono" to="/">
+            ReactRouter Link to Home
+          </Link>
+          <Link className="font-mono" to="/dashboard">
+            ReactRouter Link to Dashboard
+          </Link>
+          <Link className="font-mono" to="/dashboard/new">
+            ReactRouter Link to New Dashboard
+          </Link>
         </div>
-        <p>DashBoard Content !!</p>
+        <p className="font-sans text-lg font-bold">DashBoard Content !!</p>
         {location && (
           <LocationLog location={location} title="route.props.location" />
         )}
@@ -75,27 +92,44 @@ const Home = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   return (
-    <div>
-      <h1>Home</h1>
-      <div className="app">
+    <div className="h-full p-8 flex justify-center items-center flex-col">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Home
+      </h1>
+      <div className="p-8 border border-blue-400 border-solid">
         <LocationLog />
-        <div className="buttons">
-          <button onClick={() => dispatch(push("/"))}>
+        <div className="flex justify-around my-8">
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/"))}
+          >
             dispatch(push("/")) from everywhere
           </button>
-          <button onClick={() => dispatch(push("/dashboard"))}>
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/dashboard"))}
+          >
             dispatch(push("/dashboard")) from everywhere
           </button>
-          <button onClick={() => dispatch(push("/dashboard/new"))}>
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/dashboard/new"))}
+          >
             dispatch(push("/dashboard/new")) from everywhere
           </button>
         </div>
-        <div className="links">
-          <Link to="/">ReactRouter Link to Home</Link>
-          <Link to="/dashboard">ReactRouter Link to Dashboard</Link>
-          <Link to="/dashboard/new">ReactRouter Link to New Dashboard</Link>
+        <div className="flex justify-around my-8">
+          <Link className="font-mono" to="/">
+            ReactRouter Link to Home
+          </Link>
+          <Link className="font-mono" to="/dashboard">
+            ReactRouter Link to Dashboard
+          </Link>
+          <Link className="font-mono" to="/dashboard/new">
+            ReactRouter Link to New Dashboard
+          </Link>
         </div>
-        <p>HomePage Content !!</p>
+        <p className="font-sans text-lg font-bold">HomePage Content !!</p>
         {location && (
           <LocationLog location={location} title="route.props.location" />
         )}
@@ -108,27 +142,44 @@ const NewDashboard = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   return (
-    <div>
-      <h1>New Dashboard</h1>
-      <div className="app">
+    <div className="h-full p-8 flex justify-center items-center flex-col">
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        New Dashboard
+      </h1>
+      <div className="p-8 border border-green-800 border-solid">
         <LocationLog />
-        <div className="buttons">
-          <button onClick={() => dispatch(push("/"))}>
+        <div className="flex justify-around my-8">
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/"))}
+          >
             dispatch(push("/")) from everywhere
           </button>
-          <button onClick={() => dispatch(push("/dashboard"))}>
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/dashboard"))}
+          >
             dispatch(push("/dashboard")) from everywhere
           </button>
-          <button onClick={() => dispatch(push("/dashboard/new"))}>
+          <button
+            className="font-mono text-xs"
+            onClick={() => dispatch(push("/dashboard/new"))}
+          >
             dispatch(push("/dashboard/new")) from everywhere
           </button>
         </div>
-        <div className="links">
-          <Link to="/">ReactRouter Link to Home</Link>
-          <Link to="/dashboard">ReactRouter Link to Dashboard</Link>
-          <Link to="/dashboard/new">ReactRouter Link to New Dashboard</Link>
+        <div className="flex justify-around my-8">
+          <Link className="font-mono" to="/">
+            ReactRouter Link to Home
+          </Link>
+          <Link className="font-mono" to="/dashboard">
+            ReactRouter Link to Dashboard
+          </Link>
+          <Link className="font-mono" to="/dashboard/new">
+            ReactRouter Link to New Dashboard
+          </Link>
         </div>
-        <p>New DashBoard Content !!</p>
+        <p className="font-sans text-lg font-bold">New DashBoard Content !!</p>
         {location && (
           <LocationLog location={location} title="route.props.location" />
         )}
